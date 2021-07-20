@@ -27,7 +27,7 @@ public class TestOne extends BaseTest {
         getDriver().findElement(By.xpath("//*[@title='Пошук']")).sendKeys(Objects.isNull(searchText) ? "Test parameter" : searchText);
         getDriver().findElement(By.xpath("//*[@title='Пошук']")).sendKeys(Keys.ENTER);
         System.out.println("Parameter value = " + searchText + " Thread = " + Thread.currentThread().getName() + Thread.currentThread().getId());
-        Assertions.assertThat(false).isTrue();
+        Assertions.assertThat(false).as("testing error").isTrue();
     }
 
     @Epic("Story-1 Epic")
