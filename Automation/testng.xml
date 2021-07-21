@@ -9,12 +9,12 @@
             </class>
         </classes>
     </test>
-   <test name="test2">
+<!--   <test name="test2">
         <parameter name="searchText" value="keks2"/>
         <classes>
             <class name="TestOne"/>
         </classes>
-    </test>
+    </test>-->
     <!--   <test name="test3">
           <parameter name="searchText" value="keks3"/>
           <classes>

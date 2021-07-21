@@ -34,7 +34,7 @@ public class TestOne extends BaseTest {
     @Feature("Testing google search with data provider")
     @Severity(SeverityLevel.MINOR)
     @Description("Just simple test to check google search using data provider")
-    @Test(enabled = true, dataProvider = "googleSearchRequestsProvider", dataProviderClass = SearchRequestsDataProvider.class)
+    @Test(enabled = false, dataProvider = "googleSearchRequestsProvider", dataProviderClass = SearchRequestsDataProvider.class)
     @Parameters("searchText")
     public void googleSearchWithTestDataProvider(String searchText1, String searchText2, String searchText3) {
         getDriver().get("http://google.com");
