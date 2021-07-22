@@ -30,15 +30,8 @@ public class TestOne extends BaseTest {
         Assertions.assertThat(false).as("testing error").isTrue();
     }
 
-    @Step("Step 1: Open browser")
-    private void openBrowser(String browser) {
-        getDriver().get(browser);
-        getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        getDriver().manage().window().maximize();
-    }
-
-    @Step("Step 2: Perform Search")
-    private void searchText(String searchText) {
+    @Step(value = "Step 2: Perform Search")
+    public void searchText(String searchText) {
         getDriver().findElement(By.xpath("//*[@title='Пошук']")).sendKeys(Objects.isNull(searchText) ? "Test parameter" : searchText);
         getDriver().findElement(By.xpath("//*[@title='Пошук']")).sendKeys(Keys.ENTER);
     }

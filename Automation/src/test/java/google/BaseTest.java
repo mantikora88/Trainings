@@ -2,12 +2,15 @@ package google;
 
 import google.utils.CustomTestNGListener;
 import google.utils.DriverProvider;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
+
+import java.util.concurrent.TimeUnit;
 
 @Listeners(CustomTestNGListener.class)
 public class BaseTest {
@@ -29,6 +32,13 @@ public class BaseTest {
 
     public static WebDriver getDriver() {
         return DriverProvider.getDriver();
+    }
+
+    @Step(value = "Step 1: Open browser with page {0}")
+    public void openBrowser(String browser) {
+        getDriver().get(browser);
+        getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        getDriver().manage().window().maximize();
     }
 
 }
