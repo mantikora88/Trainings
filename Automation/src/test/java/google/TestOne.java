@@ -11,7 +11,6 @@ import org.testng.annotations.Test;
 import google.utils.SearchRequestsDataProvider;
 
 import java.util.Objects;
-import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 
 @Test(singleThreaded = true)
@@ -43,10 +42,9 @@ public class TestOne extends BaseTest {
     @Test(enabled = false, dataProvider = "googleSearchRequestsProvider", dataProviderClass = SearchRequestsDataProvider.class)
     @Parameters("searchText")
     public void googleSearchWithTestDataProvider(String searchText1, String searchText2, String searchText3) {
-        getDriver().get("http://google.com");
+        openBrowser(Sites.GOOGLE);
         String searchString = Stream.of(searchText1, searchText2, searchText3).reduce((combine, options) -> combine + options).orElse("No search value");
-        getDriver().findElement(By.xpath("//*[@title='Пошук']")).sendKeys(searchString);
-        getDriver().findElement(By.xpath("//*[@title='Пошук']")).sendKeys(Keys.ENTER);
+        searchText(searchString);
         System.out.println("Parameter value = " + searchString + " Thread = " + Thread.currentThread().getName() + Thread.currentThread().getId());
     }
 }

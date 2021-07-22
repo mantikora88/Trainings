@@ -14,7 +14,9 @@ public class DriverProvider {
         return driver.get();
     }
 
-    public static void setUp(String browser) {
+    public static void setUp() {
+        String browser = System.getenv("Browser");
+        System.out.println("DSAAAAAAAAAAA: " + browser);
         if (Objects.isNull(browser)) {
             PropertiesProvider.getProperty(PropertiesProvider.getProperty(PropertiesProvider.GlobalProperties.BROWSER.get()));
         }

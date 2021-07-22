@@ -17,10 +17,9 @@ public class BaseTest {
 
     public final Logger LOG = LoggerFactory.getLogger(this.getClass().getCanonicalName());
 
-    @Parameters("browser")
     @BeforeMethod
-    public void setUp(@Optional String browser) {
-        DriverProvider.setUp(browser);
+    public void setUp() {
+        DriverProvider.setUp();
         DriverProvider.getDriver().manage().window().maximize();
     }
 
