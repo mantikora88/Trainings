@@ -30,7 +30,7 @@ public class TestOne extends BaseTest {
         Assertions.assertThat(false).as("testing error").isTrue();
     }
 
-    @Step(value = "Step 2: Perform Search")
+    @Step(value = "Step 2: Perform Search with value = {0}")
     public void searchText(String searchText) {
         getDriver().findElement(By.xpath("//*[@title='Пошук']")).sendKeys(Objects.isNull(searchText) ? "Test parameter" : searchText);
         getDriver().findElement(By.xpath("//*[@title='Пошук']")).sendKeys(Keys.ENTER);

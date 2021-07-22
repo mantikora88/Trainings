@@ -34,7 +34,7 @@ public class BaseTest {
         return DriverProvider.getDriver();
     }
 
-    @Step(value = "Step 1: Open browser with page {0}")
+    @Step(value = "Step 1: Open {0} site in browser")
     public void openBrowser(String browser) {
         getDriver().get(browser);
         getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
