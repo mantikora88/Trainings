@@ -1,3 +1,5 @@
+package google;
+
 import io.qameta.allure.*;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
@@ -5,7 +7,7 @@ import org.openqa.selenium.Keys;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import utils.SearchRequestsDataProvider;
+import google.utils.SearchRequestsDataProvider;
 
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
@@ -14,7 +16,7 @@ import java.util.stream.Stream;
 @Test(singleThreaded = true)
 public class TestOne extends BaseTest {
 
-    @Epic("Story-1 Epic")
+    @Epic("Story-1")
     @Feature("BCMM -1 Testing google search")
     @Severity(SeverityLevel.BLOCKER)
     @Description("Just simple test to check google search")
@@ -27,7 +29,7 @@ public class TestOne extends BaseTest {
         getDriver().findElement(By.xpath("//*[@title='Пошук']")).sendKeys(Objects.isNull(searchText) ? "Test parameter" : searchText);
         getDriver().findElement(By.xpath("//*[@title='Пошук']")).sendKeys(Keys.ENTER);
         System.out.println("Parameter value = " + searchText + " Thread = " + Thread.currentThread().getName() + Thread.currentThread().getId());
-        Assertions.assertThat(true).as("testing error").isTrue();
+        Assertions.assertThat(false).as("testing error").isTrue();
     }
 
     @Epic("Story-1 Epic")

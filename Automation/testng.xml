@@ -5,20 +5,20 @@
     <test name="test1">
         <parameter name="searchText" value="keks"/>
         <classes>
-            <class name="TestOne">
+            <class name="google.TestOne">
             </class>
         </classes>
     </test>
 <!--   <test name="test2">
         <parameter name="searchText" value="keks2"/>
         <classes>
-            <class name="TestOne"/>
+            <class name="google.TestOne"/>
         </classes>
     </test>-->
     <!--   <test name="test3">
           <parameter name="searchText" value="keks3"/>
           <classes>
-              <class name="TestOne"/>
+              <class name="google.TestOne"/>
           </classes>
       </test>-->
 </suite>

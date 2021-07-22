@@ -1,4 +1,4 @@
-package utils;
+package google.utils;
 
 import org.testng.annotations.DataProvider;
 
