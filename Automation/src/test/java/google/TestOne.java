@@ -31,7 +31,7 @@ public class TestOne extends BaseTest {
     }
 
     @Step(value = "Step 2: Perform Search with value = {0}")
-    public void searchText(String searchText) {
+    private void searchText(String searchText) {
         getDriver().findElement(By.xpath("//*[@title='Пошук']")).sendKeys(Objects.isNull(searchText) ? "Test parameter" : searchText);
         getDriver().findElement(By.xpath("//*[@title='Пошук']")).sendKeys(Keys.ENTER);
     }

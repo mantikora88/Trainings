@@ -29,7 +29,6 @@ public class CustomTestNGListener implements ITestListener {
     }
 
     @Override
-    @Attachment(value = "Page Screenshot", type = "image/png")
     public void onTestFailure(ITestResult iTestResult) {
         File screenShot = ((TakesScreenshot) DriverProvider.getDriver()).getScreenshotAs(OutputType.FILE);
         try {
