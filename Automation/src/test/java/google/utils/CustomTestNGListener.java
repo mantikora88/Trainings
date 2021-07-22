@@ -1,5 +1,6 @@
 package google.utils;
 
+import io.qameta.allure.Allure;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -7,8 +8,10 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -26,10 +29,12 @@ public class CustomTestNGListener implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult iTestResult) {
-        File screenShot = ((TakesScreenshot) DriverProvider.getDriver()).getScreenshotAs(OutputType.FILE);
+        InputStream screenShot = new ByteArrayInputStream(((TakesScreenshot) DriverProvider.getDriver()).getScreenshotAs(OutputType.BYTES));
         try {
-            FileUtils.copyFile(screenShot, new File(String.format("target/Screenshots/Screen%s.jpg",
-                    LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS")))));
+            String fileName = String.format("Screen%s.jpg",
+                    LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS")));
+            FileUtils.copyInputStreamToFile(screenShot, new File("target/Screenshots/" + fileName));
+            Allure.addAttachment(fileName, screenShot);
         } catch (IOException e) {
             e.printStackTrace();
         }
