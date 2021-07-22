@@ -31,12 +31,12 @@ public class CustomTestNGListener implements ITestListener {
     @Override
     @Attachment(value = "Page Screenshot", type = "image/png")
     public void onTestFailure(ITestResult iTestResult) {
-        InputStream screenShot = new ByteArrayInputStream(((TakesScreenshot) DriverProvider.getDriver()).getScreenshotAs(OutputType.BYTES));
+        File screenShot = ((TakesScreenshot) DriverProvider.getDriver()).getScreenshotAs(OutputType.FILE);
         try {
-            String fileName = String.format("Screen%s.jpg",
+            String fileName = String.format("Screen%s.png",
                     LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS")));
-            FileUtils.copyInputStreamToFile(screenShot, new File("target/Screenshots/" + fileName));
-            Allure.addAttachment(fileName, screenShot);
+            FileUtils.copyFile(screenShot, new File("target/Screenshots/" + fileName));
+            Allure.addAttachment(fileName, FileUtils.openInputStream(screenShot));
         } catch (IOException e) {
             e.printStackTrace();
         }
