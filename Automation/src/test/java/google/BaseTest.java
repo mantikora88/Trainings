@@ -1,8 +1,10 @@
 package google;
 
 import google.utils.CustomTestNGListener;
+import google.utils.DefaultTestDataProvider;
 import google.utils.DriverProvider;
 import io.qameta.allure.Step;
+import org.json.simple.JSONObject;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +18,7 @@ import java.util.concurrent.TimeUnit;
 public class BaseTest {
 
     public final Logger LOG = LoggerFactory.getLogger(this.getClass().getCanonicalName());
+    public static final ThreadLocal<DefaultTestDataProvider> tdTest = ThreadLocal.withInitial(DefaultTestDataProvider::new);
 
     @BeforeMethod
     public void setUp() {
@@ -40,4 +43,11 @@ public class BaseTest {
         getDriver().manage().window().maximize();
     }
 
+    public JSONObject getTestData(String testDataName) {
+        return tdTest.get().getJSONData(this.getClass(), testDataName);
+    }
+
+    public JSONObject getTestData() {
+        return tdTest.get().getJSONData(this.getClass(), null);
+    }
 }

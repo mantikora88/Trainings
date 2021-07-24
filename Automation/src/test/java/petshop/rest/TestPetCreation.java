@@ -1,0 +1,27 @@
+package petshop.rest;
+
+import google.BaseTest;
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
+import io.restassured.response.Response;
+import model.PetModel;
+import org.testng.annotations.Test;
+import service.PetShopRESTService;
+import serviceimpl.RestAssureServiceImpl;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class TestPetCreation extends BaseTest {
+
+    @Story(value = "Story Pet Shop")
+    @Feature("BCMM-2 Pet creation")
+    @Description(value = "Create pet using JSON")
+    @Test
+    public void testPetCreation() {
+        PetShopRESTService petShopService = new RestAssureServiceImpl();
+        Response catResponse = petShopService.createPet(getTestData());
+        assertThat(catResponse.getStatusCode()).isEqualTo(200);
+        assertThat(catResponse.as(PetModel.class).getName()).isEqualTo("Leo");
+    }
+}
