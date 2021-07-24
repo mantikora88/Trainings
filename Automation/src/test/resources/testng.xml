@@ -1,7 +1,7 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Suite1" parallel="methods" thread-count="10">
+<suite name="Suite1" parallel="tests" thread-count="10">
     <test name="Test Google">
         <parameter name="searchText" value="keks"/>
         <classes>
@@ -22,10 +22,4 @@
             <class name="google.tests.TestOne"/>
         </classes>
     </test>-->
-    <!--   <test name="test3">
-          <parameter name="searchText" value="keks3"/>
-          <classes>
-              <class name="google.tests.TestOne"/>
-          </classes>
-      </test>-->
 </suite>
