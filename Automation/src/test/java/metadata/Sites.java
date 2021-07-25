@@ -1,4 +1,4 @@
-package google.metadata;
+package metadata;
 
 public final class Sites {
 

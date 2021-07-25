@@ -5,21 +5,28 @@
     <test name="Test Google">
         <parameter name="searchText" value="keks"/>
         <classes>
-            <class name="google.tests.TestGoogleSearch">
+            <class name="tests.google.searchtests.TestGoogleSearch">
             </class>
         </classes>
     </test>
     <test name="Test Pets REST">
         <parameter name="searchText" value="keks"/>
         <classes>
-            <class name="petshop.rest.TestPetCreation">
+            <class name="tests.petshop.rest.TestPetCreation">
+            </class>
+        </classes>
+    </test>
+    <test name="Test Pets User REST">
+        <parameter name="searchText" value="keks"/>
+        <classes>
+            <class name="tests.petshop.rest.TestUserCreation">
             </class>
         </classes>
     </test>
 <!--   <test name="test2">
         <parameter name="searchText" value="keks2"/>
         <classes>
-            <class name="google.tests.TestOne"/>
+            <class name="tests.google.searchtests.TestOne"/>
         </classes>
     </test>-->
 </suite>

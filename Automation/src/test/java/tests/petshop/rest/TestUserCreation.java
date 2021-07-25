@@ -1,6 +1,5 @@
-package petshop.rest;
+package tests.petshop.rest;
 
-import google.BaseTest;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -10,10 +9,11 @@ import model.UserResponseModel;
 import org.testng.annotations.Test;
 import service.PetShopRESTService;
 import serviceimpl.RestAssureServiceImpl;
+import tests.RESTBaseTest;
 
 import static org.assertj.core.api.Assertions.*;
 
-public class TestUserCreation extends BaseTest {
+public class TestUserCreation extends RESTBaseTest {
     PetShopRESTService petShopService = new RestAssureServiceImpl();
 
     @Story(value = "Story Pet Shop")

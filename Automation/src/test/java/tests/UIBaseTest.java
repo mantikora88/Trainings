@@ -1,21 +1,22 @@
-package google;
+package tests;
 
-import google.utils.CustomTestNGListener;
-import google.utils.DefaultTestDataProvider;
-import google.utils.DriverProvider;
 import io.qameta.allure.Step;
-import org.json.simple.JSONObject;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
+import utils.CustomTestNGListener;
+import utils.DefaultTestDataProvider;
+import utils.DriverProvider;
 
 import java.util.concurrent.TimeUnit;
 
 @Listeners(CustomTestNGListener.class)
-public class BaseTest {
+public class UIBaseTest extends BaseTest{
 
     public final Logger LOG = LoggerFactory.getLogger(this.getClass().getCanonicalName());
     public static final ThreadLocal<DefaultTestDataProvider> tdTest = ThreadLocal.withInitial(DefaultTestDataProvider::new);
@@ -43,11 +44,4 @@ public class BaseTest {
         getDriver().manage().window().maximize();
     }
 
-    public JSONObject getTestData(String testDataName) {
-        return tdTest.get().getJSONData(this.getClass(), testDataName);
-    }
-
-    public JSONObject getTestData() {
-        return tdTest.get().getJSONData(this.getClass(), null);
-    }
 }
