@@ -23,8 +23,6 @@ public class UIBaseTest extends BaseTest{
 
     @BeforeMethod
     public void setUp() {
-        DriverProvider.setUp();
-        DriverProvider.getDriver().manage().window().maximize();
     }
 
     @AfterMethod
@@ -38,8 +36,8 @@ public class UIBaseTest extends BaseTest{
     }
 
     @Step(value = "Step 1: Open {0} site in browser")
-    public void openBrowser(String browser) {
-        getDriver().get(browser);
+    public void openBrowser(String site) {
+        getDriver().get(site);
         getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         getDriver().manage().window().maximize();
     }

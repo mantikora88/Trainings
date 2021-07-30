@@ -1,17 +1,17 @@
-package serviceimpl;
+package rest.serviceimpl;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import model.UserModel;
+import rest.model.UserModel;
 import org.assertj.core.api.Assertions;
 import org.json.simple.JSONObject;
-import service.PetShopRESTService;
+import rest.service.PetShopRESTService;
 
 
 import static io.restassured.RestAssured.*;
 
-public class RestAssureServiceImpl implements PetShopRESTService {
+public class PetServiceRestAssureImpl implements PetShopRESTService<Response> {
 
     @Override
     public RequestSpecification authorize() {

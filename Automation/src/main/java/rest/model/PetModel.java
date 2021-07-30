@@ -1,4 +1,6 @@
-package model;
+package rest.model;
+
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +11,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class TagsItemModel {
+public  class PetModel{
+	private List<String> photoUrls;
 	private String name;
 	private Integer id;
+	private CategoryModel category;
+	private List<TagsItemModel> tags;
+	private String status;
 }

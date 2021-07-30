@@ -10,14 +10,12 @@
         </classes>
     </test>
     <test name="Test Pets REST">
-        <parameter name="searchText" value="keks"/>
         <classes>
             <class name="tests.petshop.rest.TestPetCreation">
             </class>
         </classes>
     </test>
     <test name="Test Pets User REST">
-        <parameter name="searchText" value="keks"/>
         <classes>
             <class name="tests.petshop.rest.TestUserCreation">
             </class>
